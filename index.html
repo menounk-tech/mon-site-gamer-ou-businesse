@@ -7,27 +7,24 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #0b0b0b;
-            color: #e0e0e0;
-            transition: all 0.5s ease;
+            background: #000; /* fond totalement noir */
+            color: #eee;
         }
 
         header {
-            background: linear-gradient(90deg, #ff0000, #6400ff, #0077ff);
+            background: #111;
             padding: 40px;
             text-align: center;
-            color: white;
             font-size: 32px;
-            text-shadow: 0 0 15px #ff0000, 0 0 15px #6400ff, 0 0 15px #0077ff;
         }
 
         nav {
-            background: #111;
+            background: #222;
             display: flex;
             justify-content: center;
             gap: 30px;
             padding: 15px;
-            border-bottom: 2px solid #ff0000;
+            border-bottom: 2px solid #444;
         }
 
         nav a {
@@ -38,32 +35,30 @@
 
         nav a:hover {
             color: #ff4d4d;
-            text-shadow: 0 0 8px #ff0000, 0 0 8px #6400ff;
         }
 
         section {
             max-width: 900px;
             margin: 40px auto;
-            background: #161616;
+            background: #111;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255,0,0,0.4), 0 0 20px rgba(100,0,255,0.4), 0 0 20px rgba(0,119,255,0.4);
+            box-shadow: 0 0 10px #000;
         }
 
         button {
             padding: 10px 20px;
-            background: linear-gradient(90deg, #ff0000, #6400ff, #0077ff);
+            background: #333;
             border: none;
             cursor: pointer;
             font-size: 16px;
             border-radius: 5px;
             color: white;
             font-weight: bold;
-            transition: all 0.3s ease;
         }
 
         button:hover {
-            filter: brightness(1.2);
+            background: #555;
         }
 
         input[type="text"], input[type="number"], select {
@@ -83,23 +78,21 @@
         }
 
         /* Mode Pro */
-        .pro-mode header {
-            text-shadow: 0 0 30px #ff0000, 0 0 30px #6400ff, 0 0 30px #0077ff;
-        }
         .pro-mode section {
-            box-shadow: 0 0 40px rgba(255,0,0,0.6), 0 0 40px rgba(100,0,255,0.6), 0 0 40px rgba(0,119,255,0.6);
+            box-shadow: 0 0 20px #555;
             transform: scale(1.02);
         }
+
         .pro-mode body {
-            background: #050505;
+            background: #000;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>🔥 Mon Site Gamer-Pro 🔥</h1>
-    <p>Style e-sport multicolore, structure professionnelle.</p>
+    <h1>Mon Site Gamer-Pro</h1>
+    <p>Style sobre et professionnel</p>
 </header>
 
 <nav>
@@ -111,92 +104,85 @@
 
 <section id="accueil">
     <h2>Accueil</h2>
-    <p>Bienvenue dans mon espace. Mix parfait entre le gaming et le business avec des néons rouges, violets et bleus 🌈🔥.</p>
+    <p>Bienvenue dans mon espace. Mélange parfait entre gaming et business avec un style sobre et élégant.</p>
 </section>
 
 <section id="business" style="text-align:center;">
-    <h2 style="color:#ff4d4d; text-shadow: 0 0 8px #ff0000, 0 0 8px #6400ff;">💼 Zone Business</h2>
-    <p style="color:#ccc; font-size:16px; line-height:1.5;">
-        Découvrez nos services professionnels : consulting, création de projets web, conseils techniques et stratégies.
-        Tout est pensé pour être efficace tout en gardant un style moderne et gamer.
-    </p>
+    <h2>Zone Business</h2>
+    <p>Découvrez nos services professionnels : consulting, création de projets web, conseils techniques et stratégies.</p>
 
     <div style="display:flex; justify-content:space-around; margin-top:20px; flex-wrap:wrap;">
-        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow: 0 0 10px rgba(255,0,0,0.3);">
-            <h3 style="color:#ff4d4d;">Consulting</h3>
+        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow:0 0 5px #000;">
+            <h3>Consulting</h3>
             <p>Conseils personnalisés pour vos projets et votre business.</p>
         </div>
-        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow: 0 0 10px rgba(100,0,255,0.3);">
-            <h3 style="color:#6400ff;">Création Web</h3>
+        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow:0 0 5px #000;">
+            <h3>Création Web</h3>
             <p>Sites web, design et animations pour un style gamer/pro.</p>
         </div>
-        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow: 0 0 10px rgba(0,119,255,0.3);">
-            <h3 style="color:#0077ff;">Support Technique</h3>
+        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow:0 0 5px #000;">
+            <h3>Support Technique</h3>
             <p>Aide et solutions pour vos problèmes techniques rapidement.</p>
         </div>
     </div>
 </section>
 
 <section id="gaming">
-    <h2>Gaming Zone 🎮</h2>
-    <p>Ici tu peux me retrouver en jeu ! Pseudo Discord : <strong>miroulepro</strong></p>
-    <p>🎯 Je joue avec ceux qui ont le Mode Pro uniquement.</p>
+    <h2>Gaming Zone</h2>
+    <p>Pseudo Discord : <strong>miroulepro</strong></p>
+    <p>Je joue avec ceux qui ont le Mode Pro uniquement.</p>
 
-    <!-- Vérification âge -->
-    <h3>🔞 Vérification d'âge</h3>
+    <h3>Vérification d'âge</h3>
     <input type="number" id="ageCheck" placeholder="Ton âge" />
     <button onclick="checkAge()">Valider</button>
     <p id="ageResult"></p>
 
-    <!-- Quiz sécurité -->
-    <h3>🛡️ Quiz Sécurité</h3>
+    <h3>Quiz Sécurité</h3>
     <p>Réponds honnêtement :</p>
     <select id="quiz">
         <option value="">-- Choisis une réponse --</option>
         <option value="ok">Je suis respectueux et je veux juste jouer.</option>
-        <option value="toxic">Je rage, j'insulte, je menace ou j'aime le harcèlement.</option>
-        <option value="weird">J'ai des intentions bizarres ou malsaines avec les gens.</option>
+        <option value="toxic">Je rage, j'insulte ou je menace.</option>
+        <option value="weird">J'ai des intentions bizarres ou malsaines.</option>
     </select>
     <button onclick="securityCheck()">Envoyer</button>
 
-    <!-- Zone des jeux -->
-    <h3>🕹️ Mes jeux</h3>
+    <h3>Mes jeux</h3>
     <button onclick="showGames()">Voir mes jeux</button>
     <div id="gamesList" style="display:none; margin-top:20px;"></div>
 </section>
 
 <section id="contact">
     <h2>Contact</h2>
-    <button onclick="alert('Merci ! Je reviendrai vers toi 🚀')">Me contacter</button>
+    <button onclick="alert('Merci ! Je reviendrai vers toi')">Me contacter</button>
 </section>
 
-<!-- Section Mode Pro -->
 <section style="text-align:center; margin:50px;">
-    <h3>Mode Pro 🔥</h3>
+    <h3>Mode Pro</h3>
     <p>Active toutes les fonctionnalités premium :</p>
     <button onclick="startFreeTrial()">Essai gratuit 7 jours</button>
     <button onclick="payProDiscord()">S’abonner 23€/mois via Discord</button>
-    <p style="margin-top:20px;">Ou entre le code secret familial pour un accès gratuit :</p>
+    <p>Ou entre le code secret familial pour un accès gratuit :</p>
     <input type="text" id="proCode" placeholder="Code secret familial" />
     <button onclick="checkProCode()">Activer Mode Pro Gratuit</button>
 </section>
 
 <footer>
-    © 2025 - Site Gamer-Pro Multicolore | Business et Gaming | Style et sérieux 🔥
+    © 2025 - Site Gamer-Pro Sobre | Business et Gaming
 </footer>
 
 <script>
     const secretCode = "ANEHO";
-    const discordLink = "https://discord.gg/UxAkYJAdk8"; // lien Discord pour paiement
+    const discordLink = "https://discord.gg/UxAkYJAdk8";
     const games = ["Roblox", "Fortnite", "Rocket League", "Marvel Rivals", "Fall Guys"];
 
     function checkProCode() {
         const codeInput = document.getElementById('proCode').value;
         if(codeInput === secretCode){
             document.body.classList.add('pro-mode');
-            alert('✅ Mode Pro activé gratuitement pour ta famille ! 💎');
+            alert('Mode Pro activé gratuitement pour la famille !');
         } else {
-            alert('❌ Code incorrect.');
+            alert('Code incorrect.');
         }
     }
 
@@ -205,41 +191,41 @@
         if(confirmPay){
             window.open(discordLink, "_blank");
             document.body.classList.add('pro-mode');
-            alert('✅ Mode Pro activé ! Merci pour votre abonnement 💎');
+            alert('Mode Pro activé ! Merci pour votre abonnement.');
         }
     }
 
     function startFreeTrial() {
         document.body.classList.add('pro-mode');
-        alert("🎉 Essai gratuit de 7 jours activé ! Profite du Mode Pro avant de t'abonner !");
+        alert("Essai gratuit de 7 jours activé !");
     }
 
     function checkAge(){
         let age = document.getElementById("ageCheck").value;
         if(age >= 14 && age <= 30){
-            document.getElementById("ageResult").innerHTML = "❌ Accès refusé (âge 14-30 non autorisé).";
-            alert("🚫 Tu es dans la tranche d'âge interdite pour ce site !");
-            document.body.innerHTML = "<h1 style='text-align:center; color:red; margin-top:100px;'>🚫 Accès interdit à ce site pour ta tranche d'âge.</h1>";
+            document.getElementById("ageResult").innerHTML = "Accès refusé (14-30 ans non autorisé)";
+            alert("Tu es dans la tranche d'âge interdite !");
+            document.body.innerHTML = "<h1 style='text-align:center; color:red; margin-top:100px;'>Accès interdit à ce site pour ta tranche d'âge.</h1>";
         } else {
-            document.getElementById("ageResult").innerHTML = "✔ Accès autorisé 👍";
+            document.getElementById("ageResult").innerHTML = "Accès autorisé";
         }
     }
 
     function securityCheck(){
         let answer = document.getElementById("quiz").value;
         if(answer === "ok"){
-            alert("✔ Bienvenue ! Tu peux participer.");
+            alert("Bienvenue ! Tu peux participer.");
         }
         if(answer === "toxic" || answer === "weird"){
-            alert("🚫 Banni pour comportement inadapté.");
-            window.location.href = "https://google.com"; // simulation bannissement
+            alert("Banni pour comportement inadapté.");
+            window.location.href = "https://google.com";
         }
     }
 
     function showGames(){
         const gamesDiv = document.getElementById("gamesList");
         gamesDiv.style.display = "block";
-        gamesDiv.innerHTML = ""; // réinitialiser
+        gamesDiv.innerHTML = "";
         games.forEach(game => {
             const div = document.createElement("div");
             div.style.background = "#111";
@@ -247,8 +233,7 @@
             div.style.padding = "10px";
             div.style.margin = "5px";
             div.style.borderRadius = "8px";
-            div.style.boxShadow = "0 0 10px rgba(255,0,0,0.3), 0 0 10px rgba(100,0,255,0.3)";
-            div.textContent = "🎮 " + game;
+            div.textContent = game;
             gamesDiv.appendChild(div);
         });
     }
