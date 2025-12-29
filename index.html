@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mon Site Gamer Pro</title>
+    <title>Mon Site Gamer-Pro</title>
     <style>
         body {
             margin: 0;
@@ -19,7 +19,6 @@
             color: white;
             font-size: 32px;
             text-shadow: 0 0 15px #ff0000, 0 0 15px #6400ff, 0 0 15px #0077ff;
-            transition: all 0.5s ease;
         }
 
         nav {
@@ -29,14 +28,12 @@
             gap: 30px;
             padding: 15px;
             border-bottom: 2px solid #ff0000;
-            transition: all 0.5s ease;
         }
 
         nav a {
             color: white;
             font-weight: bold;
             text-decoration: none;
-            transition: 0.3s;
         }
 
         nav a:hover {
@@ -51,7 +48,6 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255,0,0,0.4), 0 0 20px rgba(100,0,255,0.4), 0 0 20px rgba(0,119,255,0.4);
-            transition: all 0.5s ease;
         }
 
         button {
@@ -70,11 +66,11 @@
             filter: brightness(1.2);
         }
 
-        input[type="text"] {
+        input[type="text"], input[type="number"], select {
             padding: 10px;
             border-radius: 5px;
             border: none;
-            width: 200px;
+            width: 220px;
             margin-right: 10px;
         }
 
@@ -84,10 +80,9 @@
             background: #111;
             color: #888;
             margin-top: 50px;
-            transition: all 0.5s ease;
         }
 
-        /* Styles Mode Pro */
+        /* Mode Pro */
         .pro-mode header {
             text-shadow: 0 0 30px #ff0000, 0 0 30px #6400ff, 0 0 30px #0077ff;
         }
@@ -109,9 +104,8 @@
 
 <nav>
     <a href="#accueil">Accueil</a>
-    <a href="#portfolio">Portfolio</a>
+    <a href="#business">Business</a>
     <a href="#gaming">Gaming</a>
-    <a href="#services">Services</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -120,19 +114,55 @@
     <p>Bienvenue dans mon espace. Mix parfait entre le gaming et le business avec des néons rouges, violets et bleus 🌈🔥.</p>
 </section>
 
-<section id="portfolio">
-    <h2>Portfolio</h2>
-    <p>Projets, compétences et réalisations. On reste pro tout en gardant un style gamer agressif et coloré.</p>
+<section id="business" style="text-align:center;">
+    <h2 style="color:#ff4d4d; text-shadow: 0 0 8px #ff0000, 0 0 8px #6400ff;">💼 Zone Business</h2>
+    <p style="color:#ccc; font-size:16px; line-height:1.5;">
+        Découvrez nos services professionnels : consulting, création de projets web, conseils techniques et stratégies.
+        Tout est pensé pour être efficace tout en gardant un style moderne et gamer.
+    </p>
+
+    <div style="display:flex; justify-content:space-around; margin-top:20px; flex-wrap:wrap;">
+        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow: 0 0 10px rgba(255,0,0,0.3);">
+            <h3 style="color:#ff4d4d;">Consulting</h3>
+            <p>Conseils personnalisés pour vos projets et votre business.</p>
+        </div>
+        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow: 0 0 10px rgba(100,0,255,0.3);">
+            <h3 style="color:#6400ff;">Création Web</h3>
+            <p>Sites web, design et animations pour un style gamer/pro.</p>
+        </div>
+        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow: 0 0 10px rgba(0,119,255,0.3);">
+            <h3 style="color:#0077ff;">Support Technique</h3>
+            <p>Aide et solutions pour vos problèmes techniques rapidement.</p>
+        </div>
+    </div>
 </section>
 
 <section id="gaming">
-    <h2>Gaming Zone</h2>
-    <p>Univers gamer, screenshots, créations, jeux favoris… Ici, c’est l’arène multicolore 🎮🌈.</p>
-</section>
+    <h2>Gaming Zone 🎮</h2>
+    <p>Ici tu peux me retrouver en jeu ! Pseudo Discord : <strong>miroulepro</strong></p>
+    <p>🎯 Je joue avec ceux qui ont le Mode Pro uniquement.</p>
 
-<section id="services">
-    <h2>Services</h2>
-    <p>Création de sites, projets techniques, aide et développement. Style pro + gamer partout.</p>
+    <!-- Vérification âge -->
+    <h3>🔞 Vérification d'âge</h3>
+    <input type="number" id="ageCheck" placeholder="Ton âge" />
+    <button onclick="checkAge()">Valider</button>
+    <p id="ageResult"></p>
+
+    <!-- Quiz sécurité -->
+    <h3>🛡️ Quiz Sécurité</h3>
+    <p>Réponds honnêtement :</p>
+    <select id="quiz">
+        <option value="">-- Choisis une réponse --</option>
+        <option value="ok">Je suis respectueux et je veux juste jouer.</option>
+        <option value="toxic">Je rage, j'insulte, je menace ou j'aime le harcèlement.</option>
+        <option value="weird">J'ai des intentions bizarres ou malsaines avec les gens.</option>
+    </select>
+    <button onclick="securityCheck()">Envoyer</button>
+
+    <!-- Zone des jeux -->
+    <h3>🕹️ Mes jeux</h3>
+    <button onclick="showGames()">Voir mes jeux</button>
+    <div id="gamesList" style="display:none; margin-top:20px;"></div>
 </section>
 
 <section id="contact">
@@ -152,14 +182,14 @@
 </section>
 
 <footer>
-    © 2025 - Site Gamer-Pro Multicolore | Rouge, Violet, Bleu | Style et sérieux 🔥
+    © 2025 - Site Gamer-Pro Multicolore | Business et Gaming | Style et sérieux 🔥
 </footer>
 
 <script>
     const secretCode = "ANEHO";
-    const discordLink = "https://discord.gg/UxAkYJAdk8"; // Lien de paiement Discord
+    const discordLink = "https://discord.gg/UxAkYJAdk8"; // lien Discord pour paiement
+    const games = ["Roblox", "Fortnite", "Rocket League", "Marvel Rivals", "Fall Guys"];
 
-    // Activation Mode Pro via code familial
     function checkProCode() {
         const codeInput = document.getElementById('proCode').value;
         if(codeInput === secretCode){
@@ -170,7 +200,6 @@
         }
     }
 
-    // Activation Mode Pro via Discord (paiement)
     function payProDiscord() {
         const confirmPay = confirm("Voulez-vous activer le Mode Pro pour 23€/mois via Discord ?");
         if(confirmPay){
@@ -180,11 +209,48 @@
         }
     }
 
-    // Essai gratuit 7 jours
     function startFreeTrial() {
         document.body.classList.add('pro-mode');
         alert("🎉 Essai gratuit de 7 jours activé ! Profite du Mode Pro avant de t'abonner !");
-        // Ici on peut ajouter un timer pour finir l'essai automatiquement
+    }
+
+    function checkAge(){
+        let age = document.getElementById("ageCheck").value;
+        if(age >= 14 && age <= 30){
+            document.getElementById("ageResult").innerHTML = "❌ Accès refusé (âge 14-30 non autorisé).";
+            alert("🚫 Tu es dans la tranche d'âge interdite pour ce site !");
+            document.body.innerHTML = "<h1 style='text-align:center; color:red; margin-top:100px;'>🚫 Accès interdit à ce site pour ta tranche d'âge.</h1>";
+        } else {
+            document.getElementById("ageResult").innerHTML = "✔ Accès autorisé 👍";
+        }
+    }
+
+    function securityCheck(){
+        let answer = document.getElementById("quiz").value;
+        if(answer === "ok"){
+            alert("✔ Bienvenue ! Tu peux participer.");
+        }
+        if(answer === "toxic" || answer === "weird"){
+            alert("🚫 Banni pour comportement inadapté.");
+            window.location.href = "https://google.com"; // simulation bannissement
+        }
+    }
+
+    function showGames(){
+        const gamesDiv = document.getElementById("gamesList");
+        gamesDiv.style.display = "block";
+        gamesDiv.innerHTML = ""; // réinitialiser
+        games.forEach(game => {
+            const div = document.createElement("div");
+            div.style.background = "#111";
+            div.style.color = "#fff";
+            div.style.padding = "10px";
+            div.style.margin = "5px";
+            div.style.borderRadius = "8px";
+            div.style.boxShadow = "0 0 10px rgba(255,0,0,0.3), 0 0 10px rgba(100,0,255,0.3)";
+            div.textContent = "🎮 " + game;
+            gamesDiv.appendChild(div);
+        });
     }
 </script>
 
