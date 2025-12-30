@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Site Gamer-Pro</title>
     <style>
         body {
@@ -9,6 +10,7 @@
             font-family: Arial, sans-serif;
             background: #000;
             color: #eee;
+            transition: background 0.5s ease;
         }
 
         header {
@@ -47,41 +49,44 @@
         }
 
         .card {
-            background:#111;
-            padding:20px;
-            margin:10px;
-            border-radius:10px;
-            width:250px;
-            box-shadow:0 0 5px #000;
+            background: #1a1a1a;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 0 5px #000;
+            text-align: center;
         }
 
         .flex-container {
-            display:flex;
-            justify-content:space-around;
-            margin-top:20px;
-            flex-wrap:wrap;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         button {
-            padding: 10px 20px;
-            background: #333;
+            padding: 12px 25px;
+            background: #ff4d4d;
             border: none;
             cursor: pointer;
             font-size: 16px;
             border-radius: 5px;
             color: white;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         button:hover {
-            background: #555;
+            background: #ff1a1a;
+            transform: scale(1.05);
         }
 
-        input[type="text"], input[type="number"], select {
+        input[type="number"] {
             padding: 10px;
             border-radius: 5px;
             border: none;
-            width: 220px;
+            width: 100px;
             margin-right: 10px;
         }
 
@@ -93,33 +98,26 @@
             margin-top: 50px;
         }
 
-        .pro-mode section {
-            box-shadow: 0 0 20px #555;
-            transform: scale(1.02);
+        /* --- CORRECTION MODE PRO RGB --- */
+        
+        /* On cible le body directement s'il a la classe .pro-mode */
+        body.pro-mode {
+            animation: rgbBackground 10s linear infinite;
+            background-size: 400% 400% !important;
         }
 
-        /* Effet RGB complet pour le Mode Pro */
         @keyframes rgbBackground {
-            0% { background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff); }
-            16% { background: linear-gradient(270deg, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff, #ff0000); }
-            33% { background: linear-gradient(270deg, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff, #ff0000, #ff7f00); }
-            50% { background: linear-gradient(270deg, #00ff00, #0000ff, #4b0082, #8f00ff, #ff0000, #ff7f00, #ffff00); }
-            66% { background: linear-gradient(270deg, #0000ff, #4b0082, #8f00ff, #ff0000, #ff7f00, #ffff00, #00ff00); }
-            83% { background: linear-gradient(270deg, #4b0082, #8f00ff, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff); }
-            100% { background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff); }
+            0% { background-color: #ff0000; }
+            20% { background-color: #ff7f00; }
+            40% { background-color: #ffff00; }
+            60% { background-color: #00ff00; }
+            80% { background-color: #0000ff; }
+            100% { background-color: #ff0000; }
         }
 
-        .pro-mode body {
-            animation: rgbBackground 15s ease infinite;
-            background-size: 1400% 1400%;
-        }
-
-        .pro-mode header,
-        .pro-mode nav,
-        .pro-mode section,
-        .pro-mode footer {
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
-            transition: box-shadow 0.5s;
+        .pro-mode section, .pro-mode header, .pro-mode nav {
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
@@ -134,7 +132,6 @@
     <a href="#accueil">Accueil</a>
     <a href="#business">Business</a>
     <a href="#gaming">Gaming</a>
-    <a href="#contact">Contact</a>
 </nav>
 
 <section id="accueil">
@@ -144,29 +141,72 @@
 
 <section id="business" style="text-align:center;">
     <h2>Zone Business</h2>
-    <p>Découvrez nos services professionnels : consulting, création de projets web, conseils techniques et stratégies.</p>
+    <p>Découvrez nos services professionnels : consulting, création de projets web, et stratégies.</p>
 
     <div class="flex-container">
         <div class="card">
             <h3>Consulting</h3>
-            <p>Conseils personnalisés pour vos projets et votre business.</p>
+            <p>Conseils personnalisés pour vos projets.</p>
         </div>
         <div class="card">
             <h3>Création Web</h3>
-            <p>Sites web, design et animations pour un style sobre.</p>
+            <p>Sites web et design pro.</p>
         </div>
         <div class="card">
-            <h3>Support Technique</h3>
-            <p>Aide et solutions pour vos problèmes techniques rapidement.</p>
+            <h3>Support</h3>
+            <p>Aide technique rapide.</p>
         </div>
     </div>
 </section>
 
-<section id="gaming">
+<section id="gaming" style="text-align: center;">
     <h2>Gaming Zone</h2>
     <p>Pseudo Discord : <strong>miroulepro</strong></p>
-    <p>Je joue avec ceux qui ont le Mode Pro uniquement.</p>
+    <p>Statut actuel : <strong id="status" style="color: #ff4d4d;">GRATUIT</strong></p>
+    
+    <div style="margin: 20px 0;">
+        <h3>Vérification d'âge</h3>
+        <input type="number" id="ageCheck" placeholder="Âge" />
+        <button onclick="checkAge()">Valider</button>
+    </div>
 
-    <h3>Vérification d'âge</h3>
-    <input type="number" id="ageCheck" placeholder="Ton âge" />
-    <button onclick="checkAge()">Valider</bu
+    <hr style="border: 0.5px solid #333; margin: 20px 0;">
+
+    <h3>Offre Spéciale</h3>
+    <p>Active ton essai gratuit pour débloquer le RGB !</p>
+    <button onclick="activerSemaineGratuite()" style="background: #444;">Activer 1 semaine gratuite</button>
+</section>
+
+<footer>
+    <p>&copy; 2024 menounk-tech - Tous droits réservés</p>
+</footer>
+
+<script>
+    function activerSemaineGratuite() {
+        // Ajoute la classe au body pour lancer l'animation CSS
+        document.body.classList.add('pro-mode');
+        
+        // Change le texte de statut
+        const status = document.getElementById('status');
+        status.innerText = "ESSAI PRO ACTIF (7 JOURS)";
+        status.style.color = "#00ff00";
+        
+        alert("Félicitations ! Le Mode Pro est activé. Profite de l'effet RGB !");
+    }
+
+    function checkAge() {
+        const age = document.getElementById('ageCheck').value;
+        if(age === "") {
+            alert("Entre ton âge d'abord !");
+            return;
+        }
+        if(age >= 18) {
+            alert("Accès autorisé au salon Gamer !");
+        } else {
+            alert("Accès restreint. Demande à un adulte.");
+        }
+    }
+</script>
+
+</body>
+</html>
