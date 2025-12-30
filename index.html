@@ -2,12 +2,12 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>ShadowByte | Interface Élite</title>
+    <title>ShadowByte | Interface Officielle</title>
     <style>
-        /* DESIGN GLOBAL MASSIF */
-        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #000; color: #fff; transition: 0.5s; overflow-x: hidden; }
+        /* DESIGN GLOBAL BASÉ SUR TES IMAGES */
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; transition: 0.5s; }
 
-        /* FOND DÉGRADÉ PRO */
+        /* FOND DÉGRADÉ PRO (CODE ANEHO) */
         body.pro-mode {
             background: linear-gradient(90deg, #ff4e00, #ffea00, #7cfc00) !important;
             background-size: 400% 400% !important;
@@ -16,21 +16,21 @@
         @keyframes moveGradient { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
 
         header { background: #0a0a0a; padding: 40px; text-align: center; border-bottom: 2px solid #5865F2; }
-        nav { background: #111; display: flex; justify-content: center; gap: 30px; padding: 15px; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 1000; }
+        nav { background: #111; display: flex; justify-content: center; gap: 30px; padding: 15px; border-bottom: 1px solid #333; }
         nav a { color: #888; font-weight: bold; text-decoration: none; text-transform: uppercase; font-size: 13px; }
 
         section { max-width: 950px; margin: 40px auto; background: #0f0f0f; padding: 35px; border-radius: 15px; border: 1px solid #222; }
 
-        /* NOUVELLE ZONE DE STATUT HYBRIDE */
-        #status-box { background: #141414; padding: 25px; border-radius: 12px; border: 1px solid #333; text-align: center; margin-bottom: 30px; }
+        /* STATUS BOX HYBRIDE */
+        #status-box { background: #141414; padding: 25px; border-radius: 12px; border: 1px solid #333; text-align: center; }
         .status-dot { height: 14px; width: 14px; border-radius: 50%; display: inline-block; margin-right: 10px; background: #747f8d; }
         .online-dot { background: #43b581 !important; box-shadow: 0 0 15px #43b581; }
 
-        /* BOUTONS */
+        /* BOUTONS ET JEUX */
         .btn-main { padding: 12px 25px; background: #333; border: none; cursor: pointer; font-size: 16px; border-radius: 6px; color: white; font-weight: bold; }
         .btn-discord { background: #5865F2; width: 100%; max-width: 400px; padding: 15px; font-size: 18px; border-radius: 8px; border: none; color: white; cursor: pointer; font-weight: bold; }
         
-        input { padding: 12px; border-radius: 6px; border: 1px solid #333; background: #222; color: white; width: 220px; }
+        input { padding: 12px; border-radius: 6px; border: 1px solid #333; background: #222; color: white; }
         .game-item { background: #1a1a1a; padding: 15px; border-radius: 8px; margin: 10px 0; border: 1px solid #333; }
     </style>
 </head>
@@ -39,7 +39,6 @@
 <header><h1>SHADOWBYTE</h1></header>
 
 <nav>
-    <a href="#accueil">Accueil</a>
     <a href="#gaming">Gaming Zone</a>
     <a href="#pro">Mode Pro</a>
 </nav>
@@ -48,16 +47,16 @@
     <h2>Gaming Zone</h2>
     
     <div id="status-box">
-        <p><span id="dot" class="status-dot"></span> <span id="statut-txt">Détection en cours...</span></p>
+        <p><span id="dot" class="status-dot"></span> <span id="statut-txt">Détection de ShadowByte...</span></p>
         <p id="actuel-jeu" style="color:#7cfc00; font-size: 22px; font-weight:bold; margin-top: 10px;"></p>
         
         <div id="manual-contact" style="margin-top:15px; display:none;">
-            <p style="font-size:12px; color:#666;">La détection automatique prend du temps ?</p>
-            <button class="btn-main" onclick="window.open('https://discord.com/users/1282298642054025257')">Vérifier mon profil en direct</button>
+            <p style="font-size:12px; color:#666;">Problème de détection ?</p>
+            <button class="btn-main" onclick="window.open('https://discord.com/users/1282298642054025257')">Voir mon profil ShadowByte</button>
         </div>
     </div>
 
-    <div style="background: #161616; padding: 20px; border-radius: 10px; margin-bottom: 25px;">
+    <div style="background: #161616; padding: 20px; border-radius: 10px; margin: 25px 0;">
         <h3>Vérification d'âge</h3>
         <input type="number" id="ageInput" placeholder="Ton âge">
         <button class="btn-main" onclick="verifAge()">Vérifier</button>
@@ -70,18 +69,19 @@
         <div class="game-item">Roblox</div>
         <div class="game-item">Fortnite</div>
         <div class="game-item">Rocket League</div>
+        <div class="game-item">Marvel Rivals</div>
+        <div class="game-item">Fall Guys</div>
     </div>
 </section>
 
 <section id="pro" style="text-align:center;">
     <h2>Mode Pro</h2>
-    <button class="btn-main" style="background:#ff4b4b; width:100%; max-width:350px; padding:18px;" onclick="activerPro()">ACTIVER MON ESSAI GRATUIT</button>
-    <p style="margin-top:20px;">Code familial : <strong>ANEHO</strong></p>
+    <p>Accès réservé. Utilisez le code <strong>ANEHO</strong>.</p>
     <input type="text" id="codeFamille" placeholder="Entrez le code">
     <button class="btn-main" onclick="verifCode()">Activer</button>
 
     <div style="margin-top: 40px; border-top: 1px solid #222; padding-top: 30px;">
-        <button class="btn-discord" onclick="voirPseudo()">🔒 Pseudo Discord (Membres PRO)</button>
+        <button class="btn-discord" onclick="voirPseudo()">🔒 Contact Discord (Membres PRO)</button>
         <p id="discordResult" style="margin-top:20px; color:#7cfc00; font-size:24px; font-weight:bold;"></p>
     </div>
 </section>
@@ -89,12 +89,11 @@
 <script>
     const monID = "1282298642054025257"; 
 
-    // OPTION 1 : NOUVELLE MÉTHODE DE DÉTECTION (FORCE REFRESH)
+    // OPTION 1 : DÉTECTION OPTIMISÉE SANS CACHE
     async function startDiscordStatus() {
         async function refresh() {
             try {
-                // On ajoute un timestamp à la fin pour forcer l'API à ne pas utiliser le cache
-                const res = await fetch(`https://api.lanyard.rest/v1/users/${monID}?t=${Date.now()}`);
+                const res = await fetch(`https://api.lanyard.rest/v1/users/${monID}?cache_bust=${Date.now()}`);
                 const data = await res.json();
                 
                 const dot = document.getElementById('dot');
@@ -110,39 +109,40 @@
                         dot.classList.add("online-dot");
                         txt.innerText = "ShadowByte est EN LIGNE";
                         const game = p.activities.find(a => a.type === 0);
-                        gameTxt.innerText = game ? "🎮 Joue à : " + game.name : "Station en veille";
+                        gameTxt.innerText = game ? "🎮 Joue actuellement à : " + game.name : "Station en veille";
                     } else {
                         dot.classList.remove("online-dot");
                         txt.innerText = "ShadowByte est Hors-ligne";
                         gameTxt.innerText = "";
                     }
                 } else {
-                    // Si Lanyard bug, on affiche le bouton de secours
-                    txt.innerText = "Statut Temporairement Indisponible";
                     manual.style.display = "block";
                 }
-            } catch(e) { 
-                document.getElementById('manual-contact').style.display = "block";
-            }
+            } catch(e) { document.getElementById('manual-contact').style.display = "block"; }
         }
-        refresh(); setInterval(refresh, 5000); // Rafraîchissement plus rapide (5s)
+        refresh(); setInterval(refresh, 8000); 
     }
 
     function checkSavedProStatus() { if(localStorage.getItem('pro') === 'true') document.body.classList.add('pro-mode'); }
-    function activerPro() { document.body.classList.add('pro-mode'); localStorage.setItem('pro', 'true'); alert("Accès Pro activé !"); }
+    function activerPro() { document.body.classList.add('pro-mode'); localStorage.setItem('pro', 'true'); alert("ShadowByte Pro Activé !"); }
     function verifCode() { if(document.getElementById('codeFamille').value === "ANEHO") activerPro(); }
+    
     function verifAge() {
         let age = document.getElementById('ageInput').value;
-        if(age >= 14 && age <= 30) document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:200px;'>ACCÈS INTERDIT</h1>";
+        if(age >= 14 && age <= 30) document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:200px;'>ZONE RESTREINTE</h1>";
         else if(age !== "") document.getElementById('ageReponse').innerHTML = "<span style='color:#7cfc00'>✅ Accès autorisé</span>";
     }
+
     function afficherJeux() {
         if(document.body.classList.contains('pro-mode')) document.getElementById('listeJeux').style.display = "block";
-        else alert("Mode PRO requis !");
+        else alert("Abonnement PRO ShadowByte requis !");
     }
+
     function voirPseudo() {
-        if(document.body.classList.contains('pro-mode')) document.getElementById('discordResult').innerText = "Pseudo : miroulepro";
-        else alert("Veuillez activer le mode PRO.");
+        if(document.body.classList.contains('pro-mode')) {
+            // NOUVEAU PSEUDO AFFICHÉ ICI
+            document.getElementById('discordResult').innerText = "Pseudo : ShadowByte";
+        } else alert("Veuillez activer le mode PRO.");
     }
 </script>
 </body>
