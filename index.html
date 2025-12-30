@@ -51,9 +51,7 @@
 
         /* --- LE VRAI DÉGRADÉ RGB FIXÉ --- */
         body.pro-mode {
-            /* On affiche plusieurs couleurs en même temps pour un vrai dégradé */
             background: linear-gradient(120deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000) !important;
-            /* Taille réduite à 200% pour voir le mélange des couleurs */
             background-size: 200% 200% !important;
             animation: gradientScroll 4s linear infinite !important;
         }
@@ -70,9 +68,7 @@
         }
     </style>
 </head>
-<body>
-
-<header>
+<body onload="checkSavedProStatus()"> <header>
     <h1>Mon Site Gamer-Pro</h1>
     <p>Style sobre et professionnel</p>
 </header>
@@ -86,43 +82,31 @@
 
 <section id="accueil">
     <h2>Accueil</h2>
-    <p>Bienvenue dans mon espace. Mélange parfait entre gaming et business avec un style élégant.</p>
-</section>
-
-<section id="business" style="text-align:center;">
-    <h2>Zone Business</h2>
-    <div class="flex-container">
-        <div class="card"><h3>Consulting</h3><p>Conseils personnalisés pour vos projets.</p></div>
-        <div class="card"><h3>Création Web</h3><p>Sites web, design et animations.</p></div>
-        <div class="card"><h3>Support</h3><p>Aide et solutions techniques rapides.</p></div>
-    </div>
+    <p>Bienvenue dans mon espace. Mélange parfait entre gaming et business.</p>
 </section>
 
 <section id="gaming">
     <h2>Gaming Zone</h2>
-    <p>Pseudo Discord : <strong>miroulepro</strong></p>
-
     <h3>Vérification d'âge</h3>
     <input type="number" id="ageCheck" placeholder="Ton âge" />
     <button onclick="checkAge()">Vérifier</button>
     <p id="ageResult"></p>
-
-    <h3>Quiz Sécurité</h3>
-    <select id="quiz">
-        <option value="">-- Choisis une réponse --</option>
-        <option value="ok">Je suis respectueux.</option>
-        <option value="toxic">Je suis toxique.</option>
-    </select>
-    <button onclick="securityCheck()">Envoyer</button>
 
     <h3>Mes jeux</h3>
     <button onclick="showGames()">Voir mes jeux</button>
     <div id="gamesList" style="display:none; margin-top:20px;"></div>
 </section>
 
+<section id="contact" style="text-align:center;">
+    <h2>Me Contacter</h2>
+    <p>Une question ? Un projet ?</p>
+    <button onclick="contactDiscord()" style="background: #5865F2;">Contacter sur Discord (PRO)</button>
+    <p id="discordResult" style="margin-top:15px; font-weight:bold; color: #48ff00;"></p>
+</section>
+
 <section style="text-align:center; border: 2px dashed #444;">
     <h3>Mode Pro</h3>
-    <p>Activez le fond arc-en-ciel (Dégradé RGB animé) :</p>
+    <p>Le mode Pro restera activé sur cet ordinateur !</p>
     <button onclick="startFreeTrial()" style="background: #ff4d4d; margin-bottom: 10px;">ACTIVER MON ESSAI GRATUIT</button>
     <br>
     <button onclick="payProDiscord()">S’abonner 23€/mois via Discord</button>
@@ -130,48 +114,78 @@
     <p style="margin-top:20px;">Ou code secret familial :</p>
     <input type="text" id="proCode" placeholder="Code secret" />
     <button onclick="checkProCode()">Activer</button>
+    <br><br>
+    <button onclick="resetProMode()" style="background: #222; font-size: 10px;">Réinitialiser (Devenir non-pro)</button>
 </section>
 
 <footer>© 2025 menounk-tech - Propulsé par GitHub</footer>
 
 <script>
-    // Configuration
     const secretCode = "ANEHO";
     const discordLink = "https://discord.gg/UxAkYJAdk8";
+    const myDiscordPseudo = "miroulepro";
     const games = ["Roblox", "Fortnite", "Rocket League", "Marvel Rivals", "Fall Guys"];
 
-    // Activation du Mode Pro
+    // --- SYSTÈME DE SAUVEGARDE ---
+    
+    // Cette fonction s'exécute dès que la page s'ouvre
+    function checkSavedProStatus() {
+        const isPro = localStorage.getItem('isProMember');
+        if (isPro === 'true') {
+            document.body.classList.add('pro-mode');
+            console.log("Mode Pro chargé depuis la mémoire !");
+        }
+    }
+
+    // On appelle cette fonction quand on devient Pro
+    function activatePro() {
+        document.body.classList.add('pro-mode');
+        localStorage.setItem('isProMember', 'true'); // On enregistre dans la mémoire
+    }
+
+    // Pour tester, on peut redevenir non-pro
+    function resetProMode() {
+        localStorage.removeItem('isProMember');
+        location.reload(); // Recharge la page pour appliquer
+    }
+
+    // --- TES FONCTIONS MISES À JOUR ---
+
+    function contactDiscord() {
+        if (document.body.classList.contains('pro-mode')) {
+            document.getElementById('discordResult').innerHTML = "Mon pseudo Discord : " + myDiscordPseudo;
+        } else {
+            alert("Le contact Discord est réservé aux membres PRO.");
+            window.location.href = "#proCode";
+        }
+    }
+
     function checkProCode() {
         if(document.getElementById('proCode').value === secretCode){
-            document.body.classList.add('pro-mode');
-            alert('Mode Pro activé gratuitement !');
+            activatePro(); // Utilise la sauvegarde
+            alert('Mode Pro activé et sauvegardé !');
         } else { alert('Code incorrect.'); }
     }
 
     function startFreeTrial() {
-        document.body.classList.add('pro-mode');
-        alert("Essai gratuit activé !");
+        activatePro(); // Utilise la sauvegarde
+        alert("Essai gratuit activé et sauvegardé !");
     }
 
     function payProDiscord() {
         if(confirm("S'abonner via Discord ?")){
             window.open(discordLink, "_blank");
-            document.body.classList.add('pro-mode');
+            activatePro(); // Utilise la sauvegarde
         }
     }
 
-    // Sécurité et Jeux
+    // Le reste du code (âge, jeux) ne change pas
     function checkAge(){
         let age = document.getElementById("ageCheck").value;
         if(age >= 14 && age <= 30){
-            alert("Accès interdit pour ta tranche d'âge !");
+            alert("Accès interdit !");
             document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:100px;'>Accès interdit.</h1>";
         } else { document.getElementById("ageResult").innerHTML = "Accès autorisé"; }
-    }
-
-    function securityCheck(){
-        if(document.getElementById("quiz").value === "ok") alert("Bienvenue !");
-        else { alert("Banni !"); window.location.href = "https://google.com"; }
     }
 
     function showGames(){
