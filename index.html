@@ -7,7 +7,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #000; /* fond totalement noir */
+            background: #000;
             color: #eee;
         }
 
@@ -46,6 +46,22 @@
             box-shadow: 0 0 10px #000;
         }
 
+        .card {
+            background:#111;
+            padding:20px;
+            margin:10px;
+            border-radius:10px;
+            width:250px;
+            box-shadow:0 0 5px #000;
+        }
+
+        .flex-container {
+            display:flex;
+            justify-content:space-around;
+            margin-top:20px;
+            flex-wrap:wrap;
+        }
+
         button {
             padding: 10px 20px;
             background: #333;
@@ -77,14 +93,33 @@
             margin-top: 50px;
         }
 
-        /* Mode Pro */
         .pro-mode section {
             box-shadow: 0 0 20px #555;
             transform: scale(1.02);
         }
 
+        /* Effet RGB complet pour le Mode Pro */
+        @keyframes rgbBackground {
+            0% { background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff); }
+            16% { background: linear-gradient(270deg, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff, #ff0000); }
+            33% { background: linear-gradient(270deg, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff, #ff0000, #ff7f00); }
+            50% { background: linear-gradient(270deg, #00ff00, #0000ff, #4b0082, #8f00ff, #ff0000, #ff7f00, #ffff00); }
+            66% { background: linear-gradient(270deg, #0000ff, #4b0082, #8f00ff, #ff0000, #ff7f00, #ffff00, #00ff00); }
+            83% { background: linear-gradient(270deg, #4b0082, #8f00ff, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff); }
+            100% { background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff); }
+        }
+
         .pro-mode body {
-            background: #000;
+            animation: rgbBackground 15s ease infinite;
+            background-size: 1400% 1400%;
+        }
+
+        .pro-mode header,
+        .pro-mode nav,
+        .pro-mode section,
+        .pro-mode footer {
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+            transition: box-shadow 0.5s;
         }
     </style>
 </head>
@@ -111,16 +146,16 @@
     <h2>Zone Business</h2>
     <p>Découvrez nos services professionnels : consulting, création de projets web, conseils techniques et stratégies.</p>
 
-    <div style="display:flex; justify-content:space-around; margin-top:20px; flex-wrap:wrap;">
-        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow:0 0 5px #000;">
+    <div class="flex-container">
+        <div class="card">
             <h3>Consulting</h3>
             <p>Conseils personnalisés pour vos projets et votre business.</p>
         </div>
-        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow:0 0 5px #000;">
+        <div class="card">
             <h3>Création Web</h3>
-            <p>Sites web, design et animations pour un style gamer/pro.</p>
+            <p>Sites web, design et animations pour un style sobre.</p>
         </div>
-        <div style="background:#111; padding:20px; margin:10px; border-radius:10px; width:250px; box-shadow:0 0 5px #000;">
+        <div class="card">
             <h3>Support Technique</h3>
             <p>Aide et solutions pour vos problèmes techniques rapidement.</p>
         </div>
@@ -134,110 +169,4 @@
 
     <h3>Vérification d'âge</h3>
     <input type="number" id="ageCheck" placeholder="Ton âge" />
-    <button onclick="checkAge()">Valider</button>
-    <p id="ageResult"></p>
-
-    <h3>Quiz Sécurité</h3>
-    <p>Réponds honnêtement :</p>
-    <select id="quiz">
-        <option value="">-- Choisis une réponse --</option>
-        <option value="ok">Je suis respectueux et je veux juste jouer.</option>
-        <option value="toxic">Je rage, j'insulte ou je menace.</option>
-        <option value="weird">J'ai des intentions bizarres ou malsaines.</option>
-    </select>
-    <button onclick="securityCheck()">Envoyer</button>
-
-    <h3>Mes jeux</h3>
-    <button onclick="showGames()">Voir mes jeux</button>
-    <div id="gamesList" style="display:none; margin-top:20px;"></div>
-</section>
-
-<section id="contact">
-    <h2>Contact</h2>
-    <button onclick="alert('Merci ! Je reviendrai vers toi')">Me contacter</button>
-</section>
-
-<section style="text-align:center; margin:50px;">
-    <h3>Mode Pro</h3>
-    <p>Active toutes les fonctionnalités premium :</p>
-    <button onclick="startFreeTrial()">Essai gratuit 7 jours</button>
-    <button onclick="payProDiscord()">S’abonner 23€/mois via Discord</button>
-    <p>Ou entre le code secret familial pour un accès gratuit :</p>
-    <input type="text" id="proCode" placeholder="Code secret familial" />
-    <button onclick="checkProCode()">Activer Mode Pro Gratuit</button>
-</section>
-
-<footer>
-    © 2025 - Site Gamer-Pro Sobre | Business et Gaming
-</footer>
-
-<script>
-    const secretCode = "ANEHO";
-    const discordLink = "https://discord.gg/UxAkYJAdk8";
-    const games = ["Roblox", "Fortnite", "Rocket League", "Marvel Rivals", "Fall Guys"];
-
-    function checkProCode() {
-        const codeInput = document.getElementById('proCode').value;
-        if(codeInput === secretCode){
-            document.body.classList.add('pro-mode');
-            alert('Mode Pro activé gratuitement pour la famille !');
-        } else {
-            alert('Code incorrect.');
-        }
-    }
-
-    function payProDiscord() {
-        const confirmPay = confirm("Voulez-vous activer le Mode Pro pour 23€/mois via Discord ?");
-        if(confirmPay){
-            window.open(discordLink, "_blank");
-            document.body.classList.add('pro-mode');
-            alert('Mode Pro activé ! Merci pour votre abonnement.');
-        }
-    }
-
-    function startFreeTrial() {
-        document.body.classList.add('pro-mode');
-        alert("Essai gratuit de 7 jours activé !");
-    }
-
-    function checkAge(){
-        let age = document.getElementById("ageCheck").value;
-        if(age >= 14 && age <= 30){
-            document.getElementById("ageResult").innerHTML = "Accès refusé (14-30 ans non autorisé)";
-            alert("Tu es dans la tranche d'âge interdite !");
-            document.body.innerHTML = "<h1 style='text-align:center; color:red; margin-top:100px;'>Accès interdit à ce site pour ta tranche d'âge.</h1>";
-        } else {
-            document.getElementById("ageResult").innerHTML = "Accès autorisé";
-        }
-    }
-
-    function securityCheck(){
-        let answer = document.getElementById("quiz").value;
-        if(answer === "ok"){
-            alert("Bienvenue ! Tu peux participer.");
-        }
-        if(answer === "toxic" || answer === "weird"){
-            alert("Banni pour comportement inadapté.");
-            window.location.href = "https://google.com";
-        }
-    }
-
-    function showGames(){
-        const gamesDiv = document.getElementById("gamesList");
-        gamesDiv.style.display = "block";
-        gamesDiv.innerHTML = "";
-        games.forEach(game => {
-            const div = document.createElement("div");
-            div.style.background = "#111";
-            div.style.color = "#fff";
-            div.style.padding = "10px";
-            div.style.margin = "5px";
-            div.style.borderRadius = "8px";
-            div.textContent = game;
-            gamesDiv.appendChild(div);
-        });
-    }
-</script>
-
-</body>
-</html>
+    <button onclick="checkAge()">Valider</bu
