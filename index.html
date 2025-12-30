@@ -2,14 +2,16 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Site Gamer-Pro</title>
     <style>
+        /* STYLE DE BASE */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #000;
             color: #eee;
-            transition: 0.5s;
+            transition: background 0.8s ease;
         }
 
         header {
@@ -17,21 +19,29 @@
             padding: 40px;
             text-align: center;
             font-size: 32px;
+            border-bottom: 2px solid #333;
         }
 
         nav {
-            background: #222;
+            background: #1a1a1a;
             display: flex;
             justify-content: center;
             gap: 30px;
             padding: 15px;
-            border-bottom: 2px solid #444;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav a {
             color: white;
             font-weight: bold;
             text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff4d4d;
         }
 
         section {
@@ -39,101 +49,174 @@
             margin: 40px auto;
             background: #111;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #000;
-        }
-
-        .card {
-            background:#111;
-            padding:20px;
-            margin:10px;
-            border-radius:10px;
-            width:250px;
-            box-shadow:0 0 5px #000;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.7);
         }
 
         .flex-container {
-            display:flex;
-            justify-content:space-around;
-            margin-top:20px;
-            flex-wrap:wrap;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #1a1a1a;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            width: 250px;
+            border: 1px solid #333;
+            text-align: center;
         }
 
         button {
-            padding: 10px 20px;
-            background: #444;
-            border: none;
+            padding: 12px 25px;
+            background: #333;
+            border: 1px solid #555;
             cursor: pointer;
             font-size: 16px;
             border-radius: 5px;
             color: white;
             font-weight: bold;
+            transition: 0.3s;
         }
 
-        /* --- EFFET RGB CORRIGÉ --- */
+        button:hover {
+            background: #ff4d4d;
+            border-color: #ff4d4d;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background: #222;
+            color: white;
+            width: 80px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #111;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        /* --- SYSTEME MODE PRO RGB --- */
+
+        /* Correction du bug : on cible le body quand il a la classe pro-mode */
         body.pro-mode {
-            animation: rgbBackground 10s infinite alternate;
+            animation: rgbShift 10s linear infinite;
+            background-size: 400% 400%;
         }
 
-        @keyframes rgbBackground {
+        @keyframes rgbShift {
             0% { background-color: #ff0000; }
-            25% { background-color: #00ff00; }
-            50% { background-color: #0000ff; }
-            75% { background-color: #ffff00; }
-            100% { background-color: #ff00ff; }
+            20% { background-color: #ff7f00; }
+            40% { background-color: #ffff00; }
+            60% { background-color: #00ff00; }
+            80% { background-color: #0000ff; }
+            100% { background-color: #ff0000; }
+        }
+
+        /* Effet visuel sur les sections en mode Pro */
+        body.pro-mode section {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-<body>
+<body id="mainBody">
 
 <header>
     <h1>Mon Site Gamer-Pro</h1>
-    <p>Style pour menounk-tech</p>
+    <p>Le hub officiel de <strong>menounk-tech</strong></p>
 </header>
 
 <nav>
-    <a href="#">Accueil</a>
-    <a href="#">Business</a>
-    <a href="#">Gaming</a>
+    <a href="#accueil">Accueil</a>
+    <a href="#business">Business</a>
+    <a href="#gaming">Gaming</a>
 </nav>
 
+<section id="accueil">
+    <h2>Bienvenue</h2>
+    <p>Ceci est mon espace personnel mélangeant mes activités Business et ma passion Gaming.</p>
+</section>
+
 <section id="business">
-    <h2>Zone Business</h2>
+    <h2 style="text-align: center;">Zone Business</h2>
     <div class="flex-container">
-        <div class="card"><h3>Consulting</h3><p>Conseils personnalisés.</p></div>
-        <div class="card"><h3>Création Web</h3><p>Design et animations.</p></div>
-        <div class="card"><h3>Support</h3><p>Solutions rapides.</p></div>
+        <div class="card">
+            <h3>Consulting</h3>
+            <p>Conseils pour vos projets web et techniques.</p>
+        </div>
+        <div class="card">
+            <h3>Création Web</h3>
+            <p>Design moderne et développement sur mesure.</p>
+        </div>
+        <div class="card">
+            <h3>Support</h3>
+            <p>Assistance technique 24/7 pour vos outils.</p>
+        </div>
     </div>
 </section>
 
-<section id="gaming">
+<section id="gaming" style="text-align: center;">
     <h2>Gaming Zone</h2>
-    <p>Pseudo Discord : <strong>miroulepro</strong></p>
-    
-    <h3>Vérification d'âge</h3>
-    <input type="number" id="ageCheck" placeholder="Ton âge" style="padding:10px; border-radius:5px;">
-    <button onclick="checkAge()">Valider</button>
+    <p>Discord : <strong>miroulepro</strong></p>
+    <p>Statut : <span id="statusLabel" style="color: #ff4d4d; font-weight: bold;">MODE GRATUIT</span></p>
 
-    <div style="margin-top: 30px; padding: 20px; border: 1px dashed #555;">
-        <h3>Offre Spéciale</h3>
-        <p>Active ton essai gratuit de 1 semaine pour débloquer le RGB !</p>
-        <button id="proBtn" onclick="activerModePro()" style="background: #ff4d4d;">Activer 1 Semaine Gratuite</button>
+    <div style="background: #1a1a1a; padding: 20px; border-radius: 10px; margin: 20px 0;">
+        <h3>Vérification d'âge</h3>
+        <input type="number" id="ageInput" placeholder="Âge">
+        <button onclick="validerAge()">Vérifier</button>
+    </div>
+
+    <div style="border: 2px dashed #444; padding: 20px; border-radius: 10px;">
+        <h3>Offre Spéciale "Trial"</h3>
+        <p>Activez votre essai de 1 semaine pour débloquer l'arrière-plan RGB animé !</p>
+        <button id="btnPro" onclick="activerModePro()" style="background: #ff4d4d; border: none;">ACTIVER MON ESSAI GRATUIT</button>
     </div>
 </section>
+
+<footer>
+    <p>&copy; 2024 menounk-tech - Propulsé par GitHub</p>
+</footer>
 
 <script>
+    // FONCTION POUR ACTIVER LE MODE PRO (RGB)
     function activerModePro() {
-        // Cette ligne active l'animation RGB
-        document.body.classList.add('pro-mode');
-        document.getElementById('proBtn').innerText = "MODE PRO ACTIF ✅";
-        document.getElementById('proBtn').style.background = "#00ff00";
-        alert("Mode Pro activé ! Le fond devient RGB.");
+        const body = document.getElementById('mainBody');
+        const status = document.getElementById('statusLabel');
+        const bouton = document.getElementById('btnPro');
+
+        // On ajoute la classe CSS qui contient l'animation
+        body.classList.add('pro-mode');
+
+        // On change l'interface pour confirmer l'activation
+        status.innerText = "MODE PRO ACTIF (ESSAI)";
+        status.style.color = "#00ff00";
+        
+        bouton.innerText = "MODE PRO DÉBLOQUÉ ✅";
+        bouton.style.background = "#222";
+        bouton.disabled = true;
+
+        alert("Bravo ! Le Mode Pro est activé. Regarde le fond d'écran !");
     }
 
-    function checkAge() {
-        const age = document.getElementById('ageCheck').value;
-        if(age >= 18) { alert("Accès Pro autorisé !"); } 
-        else { alert("Accès restreint."); }
+    // FONCTION VERIFICATION AGE
+    function validerAge() {
+        const age = document.getElementById('ageInput').value;
+        if (age === "") {
+            alert("Veuillez entrer un chiffre.");
+        } else if (age >= 18) {
+            alert("Accès autorisé. Bienvenue au club !");
+        } else {
+            alert("Accès limité. Demandez l'autorisation de vos parents.");
+        }
     }
 </script>
 
